@@ -1,4 +1,4 @@
-package Lab1;
+//package Lab1;
 import java.util.*;
 class Employee{
 	String Name = new String();
@@ -32,7 +32,7 @@ class Manager extends Employee{
 public class Inheritance2 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		//TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		Officer off = new Officer();
 		Manager mn = new Manager();
@@ -69,7 +69,7 @@ public class Inheritance2 {
 		System.out.print("Enter manager Department:");
 		mn.dpt = sc.nextLine();
 		
-		System.out.println("Officer Details:\n");
+		System.out.println("\n\nOfficer Details:\n");
 		off.display();
 		off.Slry();
 		off.print_Specil();
@@ -79,6 +79,7 @@ public class Inheritance2 {
 		mn.Slry();
 		mn.print_dpt();
 		
+		sc.close();
 	}
 
 }
