@@ -12,6 +12,7 @@ class Employee{
 	void display() {
 		System.out.printf("Name is:"+Name);
 		System.out.printf("\nAge is: %d%n",Age);
+		System.out.printf("\nPhno is: %d%n",phno);
 		System.out.printf("Address is:"+Adrs+"\n");
 	}
 }
