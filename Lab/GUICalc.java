@@ -119,21 +119,14 @@ public class GUICalc extends JFrame implements ActionListener {
 				num2=0;num1=0;
 				break;
 			case "/":
-				if(num2==0) {
 					try {
 						result=num1/num2;
-						throw new ArithmeticException("Cannot divide by 0");
-						
 					}catch(ArithmeticException ex) {
 						t1.setText("Error:"+ex.getMessage());
 						return;
 					}
-				}else {
-					
-					num1=0;num2=0;
-				}
 				
-				break;
+				}
 				
 		}t1.setText(""+result);
 			
