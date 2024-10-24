@@ -1,47 +1,62 @@
-public class QuickSort {
-    // Method to partition the array
-    static int partition(int[] arr, int low, int high) {
-        int pivot = arr[high];
-        int i = (low - 1);
-        
-        for (int j = low; j < high; j++) {
-            if (arr[j] < pivot) {
+package labPrograms24;
+import java.util.Scanner;
+
+
+
+public class quickSortNames {
+
+    public static int partition(String[] array, int low, int high) {
+        String pivot = array[low];
+        int i = low, j = high;
+
+        while (i < j) {
+            while (i < high && array[i].compareTo(pivot) <= 0) {
                 i++;
-                // Swap arr[i] and arr[j]
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+            }
+            while (array[j].compareTo(pivot) > 0) {
+                j--;
+            }
+            if (i < j) {
+                String temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
             }
         }
-        
-        // Swap arr[i + 1] and arr[high] (or pivot)
-        int temp = arr[i + 1];
-        arr[i + 1] = arr[high];
-        arr[high] = temp;
-        
-        return i + 1;
+
+        array[low] = array[j];
+        array[j] = pivot;
+        return j;
     }
 
-    // Main function for QuickSort
-    static void quickSort(int[] arr, int low, int high) {
+    public static void quickSort(String[] array, int low, int high) {
         if (low < high) {
-            int pi = partition(arr, low, high);
-            
-            // Recursively sort elements before and after partition
-            quickSort(arr, low, pi - 1);
-            quickSort(arr, pi + 1, high);
+            int pi = partition(array, low, high);
+            quickSort(array, low, pi - 1);
+            quickSort(array, pi + 1, high);
         }
     }
 
     public static void main(String[] args) {
-        int[] arr = {10, 80, 30, 90, 40, 50, 70};
-        int n = arr.length;
-        
-        quickSort(arr, 0, n - 1);
-        
-        System.out.println("Sorted array:");
-        for (int num : arr) {
-            System.out.print(num + " ");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the Number of elements: ");
+        int n = scanner.nextInt();
+        scanner.nextLine(); 
+
+        String[] array = new String[n];
+
+
+        for (int i = 0; i <n; i++) {
+                System.out.print("Enter the name of Person "+(i+1)+":");
+            array[i] = scanner.nextLine();
         }
+        quickSort(array, 0, n - 1);
+
+        System.out.println("The Names after sorting is: ");
+        for (String name : array) {
+            System.out.println(name);
+        }
+
+        scanner.close();
     }
 }
